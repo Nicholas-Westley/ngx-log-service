@@ -1,10 +1,10 @@
 {
-  "name": "ng2-log-service",
-  "version": "1.0.3",
-  "description": "Logging Service for Angular 2",
+  "name": "ngx-log-service",
+  "version": "1.0.4",
+  "description": "Logging Service for Angular",
   "repository": {
     "type": "git",
-    "url": "https://github.com/unisoftapps/ng2-log-service.git"
+    "url": "https://github.com/Nicholas-Westley/ngx-log-service"
   },
   "keywords": [
     "angular",
@@ -18,9 +18,9 @@
   "author": "unisoftapps",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/unisoftapps/ng2-log-service/issues"
+    "url": "https://github.com/Nicholas-Westley/ngx-log-service/issues"
   },
-  "homepage": "https://github.com/unisoftapps/ng2-log-service",
+  "homepage": "https://github.com/Nicholas-Westley/ngx-log-service",
   "main": "dist/ng2-log-service.js",
   "typings": "dist/ng2-log-service.d.ts",
   "scripts": {
@@ -31,16 +31,16 @@
     "prepublish": "npm run aot"
   },
   "peerDependencies": {
-    "@angular/core": ">=2.0.0"
+    "@angular/core": ">=4.0.0"
   },
   "devDependencies": {
-    "@angular/common": "^2.0.0",
-    "@angular/compiler": "^2.0.0",
-    "@angular/compiler-cli": "^2.4.9",
-    "@angular/core": "^2.0.0",
-    "@angular/platform-browser": "^2.0.0",
-    "@angular/platform-browser-dynamic": "^2.0.0",
-    "@angular/platform-server": "^2.4.9",
+    "@angular/common": "^4.0.0",
+    "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "@angular/platform-browser": "^4.0.0",
+    "@angular/platform-browser-dynamic": "^4.0.0",
+    "@angular/platform-server": "^4.0.0",
     "core-js": "^2.4.1",
     "jasmine-core": "^2.5.2",
     "karma": "^1.3.0",
@@ -49,7 +49,7 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-typescript": "^2.1.5",
     "phantomjs-prebuilt": "^2.1.14",
-    "rxjs": "5.0.0-beta.12",
+    "rxjs": "^5.5.2",
     "typescript": "^2.1.0",
     "zone.js": "^0.6.26"
   },

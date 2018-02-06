@@ -1,16 +1,17 @@
 import { AsyncSubject } from 'rxjs';
-import { Injectable, Inject, OpaqueToken } from '@angular/core';
+import { Injectable, Inject, InjectionToken } from '@angular/core';
 import { ILogObserver, ILogEvent, ILogListener, LogLevel, namespaceIsValid } from './ng2-log-service';
 
 let FUZZY_CHARACTER: string = '*';
 let INDEX_NOT_FOUND = -1;
 
 export let ALL: string = FUZZY_CHARACTER;
-export let LOG_LISTENER: OpaqueToken = new OpaqueToken('LogListener');
+
+export let LOG_LISTENER = new InjectionToken<ILogListener[]>('LogListener');
 
 @Injectable()
 export class LogObserverService implements ILogObserver {
-  
+
   private registry: { [namespace: string]: Array<ILogListener> };
   private listeners: Array<ILogListener> = [];
 
@@ -40,7 +41,7 @@ export class LogObserverService implements ILogObserver {
     //console.debug('register for '+listener.namespace);
 
     if(!namespaceIsValid(listener.namespace)) {
-      throw 'Listener cannot register to (null) Namespace';      
+      throw 'Listener cannot register to (null) Namespace';
     }
 
     if(!this.namespaceInRegistry(listener.namespace)) {
@@ -69,7 +70,7 @@ export class LogObserverService implements ILogObserver {
 
   public onDidLog(namespace: string, level: LogLevel, action: ILogEvent) {
     if(!namespaceIsValid(namespace)) {
-      throw 'Invalid Log Entry! namespace cannot be (null)';      
+      throw 'Invalid Log Entry! namespace cannot be (null)';
     }
     var listeners = this.listenersToNotify(namespace, level);
     if(listeners.length) {
@@ -85,7 +86,7 @@ export class LogObserverService implements ILogObserver {
 
     if(this.namespaceInRegistry(namespace)) {
       listeners = this.extractQualifiedListenersForLogLevel(this.registry[namespace], level);
-    }    
+    }
 
     return listeners;
   }
@@ -129,7 +130,7 @@ export class LogObserverService implements ILogObserver {
     return listeners;
   }
 
-  public namespaceInRegistry(namespace: string) : boolean {    
+  public namespaceInRegistry(namespace: string) : boolean {
     return (namespace in this.registry);
   }
 

@@ -1,6 +1,8 @@
-# ng2-log-service
+# ngx-log-service
 
 Angular 2 Logging Service. Log listeners listen to log events and are notified when they occur.
+
+Forked from [ng2-log-service](https://www.npmjs.com/package/ng2-log-service) and upgraded to support Angular 5.
 
 ## Installation ##
 
@@ -16,13 +18,13 @@ npm install --save ng2-log-service
 ### 1. Create a Class that Implements ILogListener ###
 
 ```typescript
-	
+
 import { Injectable } from '@angular/core';
 import { ILogListener, ALL, LogLevel, ILogMessage } from 'ng2-log-service';
 
 @Injectable()
 export class MyCustomListener implements ILogListener {
-    
+
     namespace = ALL; // what namespace you want to listen for
     level = LogLevel.All; // log level
 
@@ -76,14 +78,14 @@ import { LogService, LogLevel, ILogMessage } from 'ng2-log-service';
   providers: [LogService] // Inject the LogService
 })
 export class LandingPage implements OnInit {
-  
+
   constructor(private logService: LogService) {}
 
     ngOnInit() {
-        
+
         // specify a namespace for the logs
-    	this.logService.namespace = 'LandingPage'; 
-    	
+    	this.logService.namespace = 'LandingPage';
+
     	// All of these methods support passing in any object as a second parameter
     	this.logService.log('Landing page log', { data: 'optional' });
         this.logService.info('Landing page info');
@@ -91,7 +93,7 @@ export class LandingPage implements OnInit {
         this.logService.warn('Landing page warn');
         this.logService.error('Landing page error');
     	this.logService.fatal('Landing page fatal error');
-    
+
     	// Deferred execution of your log. Will not execute unless a listener is subscribed.
     	// If you need to do any 'heavy lifting' before logging a message, use logDeferred.
     	// This will only execute if there is at least on subscriber.
@@ -117,4 +119,3 @@ There is a free Chrome Extension for ng2-log-service. Learn more here: [https://
 ## Licensing
 
 This software is licensed with the MIT license.
-
